@@ -16,7 +16,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await axios.post('http://localhost:8000/auth/login/', userDetails)
+        const response = await axios.post('https://eduestimator.onrender.com/auth/login/', userDetails)
         console.log(response)
         localStorage.setItem('token', response.data.access)
     }

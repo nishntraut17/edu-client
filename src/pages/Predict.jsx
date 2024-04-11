@@ -84,7 +84,7 @@ const Predict = () => {
                             <div className='flex flex-row gap-4'>
                                 <label className="block mb-1">Gender:</label>
                                 <div className="flex">
-                                    <input type="radio" id="male" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleChange} className="mr-2" />
+                                    <input type="radio" id="male" name="gender" value="General" checked={formData.gender === "General"} onChange={handleChange} className="mr-2" />
                                     <label htmlFor="male" className="mr-4">Male</label>
                                     <input type="radio" id="female" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleChange} className="mr-2" />
                                     <label htmlFor="female">Female</label>

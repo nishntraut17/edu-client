@@ -72,7 +72,7 @@ const Add = () => {
                 <div className='flex flex-row gap-4'>
                     <label className="block mb-1">Gender:</label>
                     <div className="flex">
-                        <input type="radio" id="male" name="Gender" value="Male" checked={formData.Gender === "Male"} onChange={handleChange} className="mr-2" />
+                        <input type="radio" id="male" name="Gender" value="General" checked={formData.Gender === "General"} onChange={handleChange} className="mr-2" />
                         <label htmlFor="male" className="mr-4">Male</label>
                         <input type="radio" id="female" name="Gender" value="Female" checked={formData.Gender === "Female"} onChange={handleChange} className="mr-2" />
                         <label htmlFor="female">Female</label>

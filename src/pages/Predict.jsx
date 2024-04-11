@@ -121,7 +121,7 @@ const Predict = () => {
                                 >
                                     <option value="">Select home university</option>
                                     <option value="RTMNU">Rashtrasant Tukadoji Maharaj Nagpur University</option>
-                                    <option value="MUy">Mumbai University</option>
+                                    <option value="MU">Mumbai University</option>
                                     <option value="SPPU">Savitribai Phule Pune University</option>
                                 </select>
                             </div>

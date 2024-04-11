@@ -25,11 +25,11 @@ const Navbar = () => {
                     <button className="text-extrabold px-4 py-1 hover:text-blue-600">College Predictor</button>
                 </Link>
 
-                {user && user.username === 'admin' && (
-                    <Link to="/add">
-                        <button className="text-extrabold px-4 py-1 hover:text-blue-600">Add Data</button>
-                    </Link>
-                )}
+                {/* {user && user.username === 'admin' && ( */}
+                <Link to="/add">
+                    <button className="text-extrabold px-4 py-1 hover:text-blue-600">Add Data</button>
+                </Link>
+                {/* )} */}
             </div>
             <div className="">
                 {user ? (

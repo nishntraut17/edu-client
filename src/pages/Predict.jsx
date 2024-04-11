@@ -46,7 +46,7 @@ const Predict = () => {
         console.log(formData);
         try {
             console.log(formData);
-            const response = await axios.post(`https://eduestimator.onrender.com/api/predict/`, formData, {
+            const response = await axios.post(`http://127.0.0.1:8000/api/predict/`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -60,79 +60,75 @@ const Predict = () => {
     };
 
     return (
-        <div className="mx-auto max-w-lg">
+        <div className="px-16 py-8">
             {!responseData && (
-                <div>
-                    <h2 className="text-2xl font-bold mb-4 mt-20">Enter your data:</h2>
-                    <form onSubmit={handleSubmit} className="space-y-4 font-semibold text-gray-700 flex flex-col gap-6">
-                        <div>
-                            <label className="block mb-1">MHTCET Percentile Score:</label>
-                            <input
-                                type="number"
-                                name="marks"
-                                value={formData.marks}
-                                onChange={handleChange}
-                                className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                                placeholder="Enter between 0 to 100"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block mb-1">Gender:</label>
-                            <div className="flex">
-                                <input type="radio" id="male" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleChange} className="mr-2" />
-                                <label htmlFor="male" className="mr-4">Male</label>
-                                <input type="radio" id="female" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleChange} className="mr-2" />
-                                <label htmlFor="female">Female</label>
+                <div className='flex flex-row gap-8'>
+                    <div className='w-1/2'>
+                        <img src='predict.jpg' alt='predict' className='w-full h-full' />
+                    </div>
+                    <div className='w-1/2'>
+                        <h2 className="text-2xl font-bold my-8">Enter your data:</h2>
+                        <form onSubmit={handleSubmit} className="space-y-4 font-semibold text-gray-700 flex flex-col gap-6">
+                            <div>
+                                <label className="block mb-1">MHTCET Percentile Score:</label>
+                                <input
+                                    type="number"
+                                    name="marks"
+                                    value={formData.marks}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Enter between 0 to 100"
+                                />
                             </div>
-                        </div>
-                        <div>
-                            <label className="block mb-1">Caste:</label>
-                            <select name="category" value={formData.category} onChange={handleChange} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="">Select caste</option>
-                                <option value="OPEN">Open</option>
-                                <option value="OBC">OBC</option>
-                                <option value="ST">ST</option>
-                                <option value="SC">SC</option>
-                                <option value="NT1">NT1</option>
-                                <option value="NT2">NT2</option>
-                                <option value="NT3">NT3</option>
-                                <option value="VJ">VJ</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="block mb-1">Branch:</label>
-                            <select name="branch" value={formData.branch} onChange={handleChange} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="">Select branch</option>
-                                <option value="Computer">Computer</option>
-                                <option value="ENTC">Electronics and Telecommunication</option>
-                                <option value="IT">Information Technology</option>
-                                <option value="Civil">Civil</option>
-                                <option value="Electrical">Electrical</option>
-                                <option value="Instrumentation">Instrumentation</option>
-                                <option value="Mechanical">Mechanical</option>
-                                <option value="AIDS">Artificial Intelligence and Data Science</option>
-                                <option value="Chemical">Chemical</option>
-                            </select>
-                        </div>
 
-                        <div>
-                            <label className="block mb-1">Home University:</label>
-                            <select
-                                name="home_university"
-                                value={formData.home_university}
-                                onChange={handleChange}
-                                className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            >
-                                <option value="">Select home university</option>
-                                <option value="RTMNU">Rashtrasant Tukadoji Maharaj Nagpur University</option>
-                                <option value="MUy">Mumbai University</option>
-                                <option value="SPPU">Savitribai Phule Pune University</option>
-                            </select>
-                        </div>
+                            <div className='flex flex-row gap-4'>
+                                <label className="block mb-1">Gender:</label>
+                                <div className="flex">
+                                    <input type="radio" id="male" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleChange} className="mr-2" />
+                                    <label htmlFor="male" className="mr-4">Male</label>
+                                    <input type="radio" id="female" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleChange} className="mr-2" />
+                                    <label htmlFor="female">Female</label>
+                                </div>
+                            </div>
+                            <div className='flex flex-row gap-4'>
+                                <label className="block mb-1">Caste:</label>
+                                <select name="category" value={formData.category} onChange={handleChange} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="">Select caste</option>
+                                    <option value="OPEN">Open</option>
+                                    <option value="OBC">OBC</option>
+                                    <option value="ST">ST</option>
+                                    <option value="SC">SC</option>
+                                </select>
+                            </div>
+                            <div className='flex flex-row gap-4'>
+                                <label className="block mb-1">Branch:</label>
+                                <select name="branch" value={formData.branch} onChange={handleChange} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="">Select branch</option>
+                                    <option value="Computer">Computer</option>
+                                    <option value="ENTC">Electronics and Telecommunication</option>
+                                    <option value="IT">Information Technology</option>
+                                    <option value="Mechanical">Mechanical</option>
+                                </select>
+                            </div>
 
-                        <button type="submit" className="block w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 text-white font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
-                    </form>
+                            <div className='flex flex-row gap-4'>
+                                <label className="block mb-1">Home University:</label>
+                                <select
+                                    name="home_university"
+                                    value={formData.home_university}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                >
+                                    <option value="">Select home university</option>
+                                    <option value="RTMNU">Rashtrasant Tukadoji Maharaj Nagpur University</option>
+                                    <option value="MUy">Mumbai University</option>
+                                    <option value="SPPU">Savitribai Phule Pune University</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" className="block w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 text-white font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                        </form>
+                    </div>
                 </div>
             )}
 

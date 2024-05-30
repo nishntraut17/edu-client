@@ -25,7 +25,7 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`https://eduestimator.onrender.com/api/save-data/`, formData, {
+            await axios.post(`http://127.0.0.1:8000/api/save-data/`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

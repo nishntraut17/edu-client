@@ -20,7 +20,7 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('https://eduestimator.onrender.com/auth/register/', userDetails)
+        axios.post('http://127.0.0.1:8000/auth/register/', userDetails)
             .then(res => {
                 console.log(res)
             })

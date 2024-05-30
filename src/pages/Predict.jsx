@@ -46,7 +46,7 @@ const Predict = () => {
         console.log(formData);
         try {
             console.log(formData);
-            const response = await axios.post(`https://eduestimator.onrender.com/api/predict/`, formData, {
+            const response = await axios.post(`http://127.0.0.1:8000/api/predict/`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

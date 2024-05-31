@@ -137,23 +137,6 @@ const Predict = () => {
                     <div id="pdf-content" className="bg-white shadow-md rounded px-8 py-6 mt-20">
                         <h2 className="text-3xl font-bold mb-4 ">Result</h2>
                         <p>Precentile Score: {responseData.marks}</p>
-                        <h3>Cutoff of colleges:</h3>
-                        <table className="table-auto border-collapse w-full">
-                            <thead>
-                                <tr>
-                                    <th className="border px-4 py-2">College</th>
-                                    <th className="border px-4 py-2">Cutoff</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {Object.entries(responseData.predictions).map(([college, prediction]) => (
-                                    <tr key={college}>
-                                        <td className="border px-4 py-2">{college}</td>
-                                        <td className="border px-4 py-2">{prediction}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
                         <h3>Colleges you can get:</h3>
                         <table className="table-auto border-collapse w-full">
                             <thead>
